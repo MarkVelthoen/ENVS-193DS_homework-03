@@ -115,6 +115,10 @@ theme_minimal() #setting the theme
 
 b\)
 
+Figure 1: Ocean Activities by Daily Workload Category: This figure shows a box-plot, split into three categories on the x-axis (low workload, medium workload and high workload), containing up to four bars, with each bar corresponding to a unique ocean activity (no ocean, quick dip, body surfing and long boarding). The y-axis is simply number of days or count.
+
+Figure 2: Impact of Daily Workload on Ocean Visits: This figure is a jitterplot with daily workload (hours) on the x-axis and a categorical y-axis which indicates whether or not I went in the ocean. Each blue dot corresponds to a specific day in my data set.
+
 # Problem 3. Affective Visualization
 
 a\)

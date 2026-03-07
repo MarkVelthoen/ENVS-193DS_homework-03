@@ -1,0 +1,120 @@
+---
+title: "Homework-03-ENVS-193DS"
+author: "Mark Velthoen"
+format: html
+editor: visual
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(here)
+library(janitor)
+library(readxl)
+pickleweed <- read_csv(here("data", "salinity-pickleweed.csv"))
+personal_data <- read_csv(here("data", "personal_data.csv"))
+```
+
+# Problem 1. Slough Soil Salinity
+
+a\) In order to determine the strength of the relationship between salinity and California pickleweed biomass there are two appropriate tests, Pearson's Correlation and Spearman's Correlation. Pearson's Correlation measures the strength and direction of a linear relationship without assuming one variable causes the other. Spearman's Correlation is very similar, as it measures the strength and direction of the monotonic relationship between two ranked or continuous variables.
+
+b\)
+
+```{r}
+ggplot(pickleweed,
+       aes(x = salinity_mS_cm,
+           y = pickleweed,
+           color = "red")) + 
+  geom_point() + 
+  labs(y = "Pickleweed Biomass (g)",
+       x = "Soil Salinity (mS/cm)",
+       title = "Soil Salinity vs Biomass") +
+  theme_classic() 
+```
+
+c\)
+
+```{r}
+ggplot(data = pickleweed,  #using tussocks clean dataframe to create a plot
+       aes(sample = pickleweed)) + #y-axis for qqplot is average diameter
+  geom_qq_line(color = "blue") + #showing reference line in blue
+  geom_qq()  # adding our observations
+```
+
+```{r}
+ggplot(data = pickleweed,  #using tussocks clean dataframe to create a plot
+       aes(sample = salinity_mS_cm)) + #y-axis for qqplot is average diameter
+  geom_qq_line(color = "blue") + #showing reference line in blue
+  geom_qq()  # adding our observations
+```
+
+```{r}
+model <- lm(pickleweed ~ salinity_mS_cm, data = pickleweed)
+plot(model, which = 2) # This specifically generates the Q-Q plot of residuals
+```
+
+```{r}
+cor.test(pickleweed$pickleweed, pickleweed$salinity_mS_cm,
+         method = "pearson")
+```
+
+In order to run a Pearson's Correlation test, we must check the assumptions of linearity, normality and homoscedasticity. I checked the assumptions by plotting soil salinity vs biomass, making a qq-plot for each variable and making a qq-plot of residuals, respectively. There definitely appeared to be a linear relationship between soil salinity and biomass, both variables followed the reference line in each qq-plot and the residuals followed the qq-plot reference line. This shows that our assumptions are valid.
+
+d\) To evaluate the strength of the relationship between pickleweed biomass and soil salinity, I used a Pearson's Correlation test because both variables are continuous and the assumptions of linearity, normality and homoscedasticity were met. We found a positive moderate relationship between pickleweed biomass and soil salinity (Pearson's r = 0.53, t(21) = 2.9, p = 0.01, α = 0.05)
+
+e\) After running Pearson's Correlation, we determined that there is a positive moderate relationship between soil salinity and pickleweed mass. This means that we should prioritize planting pickleweed in areas with higher soil salinity.
+
+f\)
+
+```{r}
+cor.test(pickleweed$pickleweed, pickleweed$salinity_mS_cm,
+         method = "spearman")
+```
+
+Yes, the two tests, Pearson's and Spearman's, would have led me to make the same decision, to reject the null hypothesis (there is no correlation between pickleweed biomass and soil salinity) because both p-values are significant (0.01 and \< 0.01 respectively). Similarly, both tests also indicate a moderate positive relationship between pickleweed biomass and soil salinity (r = 0.53 and 0.59 respectively).
+
+# Problem 2. Personal Data
+
+a\)
+
+```{r}
+df2 <- (personal_data) |> #creating a new data frame from my personal data 
+  mutate(workload_cat = case_when( #mutating and creating a new variable
+`Workload (hours)` <= 3 ~ "Low (0–3 hours)",
+`Workload (hours)` <= 6 ~ "Medium (>3–6 hours)",
+`Workload (hours)` > 6 ~ "High (>6 hours)",
+TRUE ~ "Not Recorded"), #changed the continuous values into three categories, low, medium and high workload
+workload_cat = factor(workload_cat,
+levels = c("Low (0–3 hours)", "Medium (>3–6 hours)", "High (>6
+hours)"))) #ordering the categories so it goes from low to high
+ggplot(df2,
+       aes(x = workload_cat,
+fill = `Type of ocean activity`)) + #creating a plot with workload category on the x-axis
+geom_bar(position = "dodge") + #making the barplots fall next to each other in each bin instead of stacking on top of one another
+labs(title = "Ocean Activities by Daily Workload Category", #creating the labels
+x = "Daily Workload Category (hours)", #x-axis label 
+y = "Count of Days", #y-axis label
+fill = "Ocean Activity") +
+  scale_fill_brewer(palette = "Set2") + #coloring in each box based on ocean activity
+theme_classic() #setting the theme
+```
+
+```{r}
+ggplot(data = personal_data, #creating a plot using my personal data
+aes(x = `Workload (hours)`, #setting the x-axis to daily workload or not
+y = `Ocean`)) + #setting y-axis to whether I hopped in the ocean
+geom_jitter(height = 0,
+              width = 0.1, #jittering the points horizontally
+color = "blue") + #coloring each point 
+  labs(title = "Impact of Daily Workload on Ocean Visits",
+       y = "Ocean Visit",
+       x = "Daily Workload (hours)") + #creating the labels for the x and y axis as well as the title
+theme_minimal() #setting the theme
+```
+
+b\)
+
+# Problem 3. Affective Visualization
+
+a\)

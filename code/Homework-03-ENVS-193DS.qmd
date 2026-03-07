@@ -79,15 +79,17 @@ Yes, the two tests, Pearson's and Spearman's, would have led me to make the same
 a\)
 
 ```{r}
-df2 <- (personal_data) |> #creating a new data frame from my personal data 
-  mutate(workload_cat = case_when( #mutating and creating a new variable
-`Workload (hours)` <= 3 ~ "Low (0–3 hours)",
-`Workload (hours)` <= 6 ~ "Medium (>3–6 hours)",
-`Workload (hours)` > 6 ~ "High (>6 hours)",
-TRUE ~ "Not Recorded"), #changed the continuous values into three categories, low, medium and high workload
-workload_cat = factor(workload_cat,
-levels = c("Low (0–3 hours)", "Medium (>3–6 hours)", "High (>6
-hours)"))) #ordering the categories so it goes from low to high
+df2 <- personal_data |>
+  mutate(workload_cat = case_when(
+      `Workload (hours)` <= 3 ~ "Low (0–3 hours)",
+      `Workload (hours)` > 3 & `Workload (hours)` <= 6 ~ "Medium (>3–6 hours)",
+      `Workload (hours)` > 6 ~ "High (>6 hours)"),
+    workload_cat = factor(
+      workload_cat,
+      levels = c("Low (0–3 hours)", "Medium (>3–6 hours)", "High (>6 hours)")))
+```
+
+```{r}
 ggplot(df2,
        aes(x = workload_cat,
 fill = `Type of ocean activity`)) + #creating a plot with workload category on the x-axis
@@ -121,4 +123,8 @@ Figure 2: Impact of Daily Workload on Ocean Visits: This figure is a jitterplot 
 
 # Problem 3. Affective Visualization
 
-a\)
+a\) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the idea of separating workload into three categories (low, medium and high) and showing how my ocean activites differ for each workload category. I think that having some sort of visual metaphor/representation for each category and type of ocean activity would be a fun way to differentiate all the results. For example, creating a landscape/backdrop of a beach with four separate sections: large waves (long boarding), smaller waves (body surfing), the beach (quick dip) and section on the bluffs that corresponds to no ocean activity. I could then place points onto each section of the backdrop with a color or some form of visual representation to differentiate between each workload category.
+
+b/c) (Sorry, I just combined the sketch and draft into one. Hope that is okay.)
+
+d\. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = \< 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto's paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The sketch/

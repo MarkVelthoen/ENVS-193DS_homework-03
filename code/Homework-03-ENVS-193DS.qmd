@@ -123,8 +123,22 @@ Figure 2: Impact of Daily Workload on Ocean Visits: This figure is a jitterplot 
 
 # Problem 3. Affective Visualization
 
-a\) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the idea of separating workload into three categories (low, medium and high) and showing how my ocean activites differ for each workload category. I think that having some sort of visual metaphor/representation for each category and type of ocean activity would be a fun way to differentiate all the results. For example, creating a landscape/backdrop of a beach with four separate sections: large waves (long boarding), smaller waves (body surfing), the beach (quick dip) and section on the bluffs that corresponds to no ocean activity. I could then place points onto each section of the backdrop with a color or some form of visual representation to differentiate between each workload category.
+a\) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the idea of separating workload into three categories (low, medium and high) and showing how my ocean activites differ for each workload category. I think that having some sort of visual metaphor/representation for each category and type of ocean activity would be a fun way to differentiate all the results. For example, creating a landscape/backdrop of a beach with four separate sections: large waves (long boarding), smaller waves (body surfing), the beach (quick dip) and a section on the bluffs that corresponds to no ocean activity. I could then place points onto each section of the backdrop with a color or some form of visual representation to differentiate between each workload category.
 
 b/c) (Sorry, I just combined the sketch and draft into one. Hope that is okay.)
 
-d\. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = \< 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto's paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The sketch/
+d\. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = \< 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto's paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The draft is simply a sketch, but for the final draft I plan on making a watercolor painting. The process was fairly simple, the hardest part was definitely deciding how I was going to visualize my data. However, I think I landed on a cool idea. I first drew the landscape/background, then I added color and finally I added my data points to their respective locations.
+
+e\.
+
+<https://docs.google.com/presentation/d/10Z4PC2I8VR4Q52l-N6mVNy8DuwPpkmw0r3UYu9V9h9Q/edit?usp=sharing>
+
+# Problem 4. **Statistical Critique**
+
+a\)
+
+b\)
+
+c\)
+
+d\)

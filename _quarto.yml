@@ -1,0 +1,10 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "ENVS-193DS Homework 3"
+
+format:
+  html:
+    theme: cosmo

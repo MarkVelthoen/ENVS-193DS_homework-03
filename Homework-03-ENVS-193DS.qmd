@@ -8,12 +8,13 @@ format:
 execute:
   message: false # use this to make sure messages don't show up
   warning: false # use this to make sure warnings don't show upl
+editor: visual
 ---
 
 ```{r}
 #| message: false
 library(tidyverse)
-library(here)
+library(here) 
 library(janitor)
 library(readxl)
 pickleweed <- read_csv(here("data", "salinity-pickleweed.csv"))
@@ -30,8 +31,8 @@ library(tidyverse)
 library(here)
 library(janitor)
 library(readxl)
-pickleweed <- read_csv(here("data", "salinity-pickleweed.csv"))
-personal_data <- read_csv(here("data", "personal_data.csv"))
+pickleweed <- read.csv(here("data", "salinity-pickleweed.csv"))
+personal_data <- read.csv(here("data", "personal_data.csv"))
 ```
 
 a\) In order to determine the strength of the relationship between salinity and California pickleweed biomass there are two appropriate tests, Pearson's Correlation and Spearman's Correlation. Pearson's Correlation measures the strength and direction of a linear relationship without assuming one variable causes the other. Spearman's Correlation is very similar, as it measures the strength and direction of the monotonic relationship between two ranked or continuous variables.

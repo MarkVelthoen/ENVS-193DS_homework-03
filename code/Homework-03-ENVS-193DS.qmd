@@ -146,4 +146,4 @@ b\) The authors present their statistics fairly clearly in the figure. The x-axi
 
 c\) The authors handle visual clutter fairly well because the figure is simple and focuses mainly on the important data, making it easy to compare the wet and dry season values across the different water quality parameters. The data:ink ratio is relatively high since most of the visual elements are used to display the bars and values. There are also minimal extra details, only labels and color differences for the two seasons.
 
-d\)
+d\) I would recommend adding error bars (SE or SD) to show the variability in the data. I would also recommend simplifying the figure by taking out the values above each bar, as the y-axis is labeled with units. Finally, separating some parameters with very different scales (such as EColi) into a different graph could make the smaller values easier to compare.

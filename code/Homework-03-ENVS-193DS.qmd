@@ -22,29 +22,30 @@ a\) In order to determine the strength of the relationship between salinity and 
 b\)
 
 ```{r}
-ggplot(pickleweed,
-       aes(x = salinity_mS_cm,
-           y = pickleweed,
-           color = "red")) + 
-  geom_point() + 
+ggplot(pickleweed, #using pickleweed dataframe to create a plot
+       aes(x = salinity_mS_cm, #making soil salinity the x-axis
+           y = pickleweed, #making pickleweed biomass the y-axis
+           color = "red")) + #coloring the points red
+  geom_point() + #plotting the points
   labs(y = "Pickleweed Biomass (g)",
        x = "Soil Salinity (mS/cm)",
        title = "Soil Salinity vs Biomass") +
-  theme_classic() 
+  theme_classic() + #adding title, x+y axis labels ans setting the theme
+  theme(legend.position = "none") #removing legend
 ```
 
 c\)
 
 ```{r}
-ggplot(data = pickleweed,  #using tussocks clean dataframe to create a plot
-       aes(sample = pickleweed)) + #y-axis for qqplot is average diameter
+ggplot(data = pickleweed,  #using pickleweed  dataframe to create a plot
+       aes(sample = pickleweed)) + #y-axis for qqplot is pickleweed biomass
   geom_qq_line(color = "blue") + #showing reference line in blue
   geom_qq()  # adding our observations
 ```
 
 ```{r}
-ggplot(data = pickleweed,  #using tussocks clean dataframe to create a plot
-       aes(sample = salinity_mS_cm)) + #y-axis for qqplot is average diameter
+ggplot(data = pickleweed,  #using pickleweed  dataframe to create a plot
+       aes(sample = salinity_mS_cm)) + #y-axis for qqplot is soil salinity
   geom_qq_line(color = "blue") + #showing reference line in blue
   geom_qq()  # adding our observations
 ```
@@ -79,14 +80,14 @@ Yes, the two tests, Pearson's and Spearman's, would have led me to make the same
 a\)
 
 ```{r}
-df2 <- personal_data |>
-  mutate(workload_cat = case_when(
+df2 <- personal_data |> #creating a new data frame from my personal data
+  mutate(workload_cat = case_when( #mutating and creating a new variable workload_cat
       `Workload (hours)` <= 3 ~ "Low (0–3 hours)",
       `Workload (hours)` > 3 & `Workload (hours)` <= 6 ~ "Medium (>3–6 hours)",
-      `Workload (hours)` > 6 ~ "High (>6 hours)"),
+      `Workload (hours)` > 6 ~ "High (>6 hours)"), #changed the continuous values into three categories, low, medium and high workload
     workload_cat = factor(
       workload_cat,
-      levels = c("Low (0–3 hours)", "Medium (>3–6 hours)", "High (>6 hours)")))
+      levels = c("Low (0–3 hours)", "Medium (>3–6 hours)", "High (>6 hours)"))) #ordering the categories so it goes from low to high
 ```
 
 ```{r}
@@ -127,6 +128,8 @@ a\) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the i
 
 b/c) (Sorry, I just combined the sketch and draft into one. Hope that is okay.)
 
+![](images/clipboard-1532528205.png)
+
 d\. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = \< 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto's paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The draft is simply a sketch, but for the final draft I plan on making a watercolor painting. The process was fairly simple, the hardest part was definitely deciding how I was going to visualize my data. However, I think I landed on a cool idea. I first drew the landscape/background, then I added color and finally I added my data points to their respective locations.
 
 e\.
@@ -135,7 +138,9 @@ e\.
 
 # Problem 4. **Statistical Critique**
 
-a\)
+a\) The statistical test included in this paper is ANOVA (Analysis of Variance) as well as PCA (Principal Component Analysis). The response variables are the water quality parameters (pH, Dissolved Oxygen, and E. coli). The predictor variable is the season.
+
+![](images/clipboard-3964533704.png)
 
 b\)
 

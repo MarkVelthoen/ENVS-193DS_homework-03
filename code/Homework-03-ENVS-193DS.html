@@ -119,15 +119,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>a) In order to determine the strength of the relationship between salinity and California pickleweed biomass there are two appropriate tests, Pearson’s Correlation and Spearman’s Correlation. Pearson’s Correlation measures the strength and direction of a linear relationship without assuming one variable causes the other. Spearman’s Correlation is very similar, as it measures the strength and direction of the monotonic relationship between two ranked or continuous variables.</p>
 <p>b)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pickleweed,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> salinity_mS_cm,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> pickleweed,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"red"</span>)) <span class="sc">+</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pickleweed, <span class="co">#using pickleweed dataframe to create a plot</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> salinity_mS_cm, <span class="co">#making soil salinity the x-axis</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> pickleweed, <span class="co">#making pickleweed biomass the y-axis</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#coloring the points red</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co">#plotting the points</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Pickleweed Biomass (g)"</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Soil Salinity (mS/cm)"</span>,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Soil Salinity vs Biomass"</span>) <span class="sc">+</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co">#adding title, x+y axis labels ans setting the theme</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co">#removing legend</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -138,8 +139,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>c)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pickleweed,  <span class="co">#using tussocks clean dataframe to create a plot</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">sample =</span> pickleweed)) <span class="sc">+</span> <span class="co">#y-axis for qqplot is average diameter</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pickleweed,  <span class="co">#using pickleweed  dataframe to create a plot</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">sample =</span> pickleweed)) <span class="sc">+</span> <span class="co">#y-axis for qqplot is pickleweed biomass</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co">#showing reference line in blue</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()  <span class="co"># adding our observations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -151,8 +152,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pickleweed,  <span class="co">#using tussocks clean dataframe to create a plot</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">sample =</span> salinity_mS_cm)) <span class="sc">+</span> <span class="co">#y-axis for qqplot is average diameter</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pickleweed,  <span class="co">#using pickleweed  dataframe to create a plot</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">sample =</span> salinity_mS_cm)) <span class="sc">+</span> <span class="co">#y-axis for qqplot is soil salinity</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co">#showing reference line in blue</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()  <span class="co"># adding our observations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -216,14 +217,14 @@ sample estimates:
 <h1>Problem 2. Personal Data</h1>
 <p>a)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> personal_data <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workload_cat =</span> <span class="fu">case_when</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> personal_data <span class="sc">|&gt;</span> <span class="co">#creating a new data frame from my personal data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workload_cat =</span> <span class="fu">case_when</span>( <span class="co">#mutating and creating a new variable workload_cat</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Low (0–3 hours)"</span>,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Medium (&gt;3–6 hours)"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"High (&gt;6 hours)"</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"High (&gt;6 hours)"</span>), <span class="co">#changed the continuous values into three categories, low, medium and high workload</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">workload_cat =</span> <span class="fu">factor</span>(</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      workload_cat,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low (0–3 hours)"</span>, <span class="st">"Medium (&gt;3–6 hours)"</span>, <span class="st">"High (&gt;6 hours)"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low (0–3 hours)"</span>, <span class="st">"Medium (&gt;3–6 hours)"</span>, <span class="st">"High (&gt;6 hours)"</span>))) <span class="co">#ordering the categories so it goes from low to high</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2,</span>
@@ -269,10 +270,20 @@ sample estimates:
 </section>
 <section id="problem-3.-affective-visualization" class="level1">
 <h1>Problem 3. Affective Visualization</h1>
-<p>a) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the idea of separating workload into three categories (low, medium and high) and showing how my ocean activites differ for each workload category. I think that having some sort of visual metaphor/representation for each category and type of ocean activity would be a fun way to differentiate all the results. For example, creating a landscape/backdrop of a beach with four separate sections: large waves (long boarding), smaller waves (body surfing), the beach (quick dip) and section on the bluffs that corresponds to no ocean activity. I could then place points onto each section of the backdrop with a color or some form of visual representation to differentiate between each workload category.</p>
+<p>a) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the idea of separating workload into three categories (low, medium and high) and showing how my ocean activites differ for each workload category. I think that having some sort of visual metaphor/representation for each category and type of ocean activity would be a fun way to differentiate all the results. For example, creating a landscape/backdrop of a beach with four separate sections: large waves (long boarding), smaller waves (body surfing), the beach (quick dip) and a section on the bluffs that corresponds to no ocean activity. I could then place points onto each section of the backdrop with a color or some form of visual representation to differentiate between each workload category.</p>
 <p>b/c) (Sorry, I just combined the sketch and draft into one. Hope that is okay.)</p>
-<pre><code>{{&lt; pdf IMG_2364.pdf &gt;}}</code></pre>
-<p>d. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = &lt; 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto’s paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The sketch/</p>
+<p><img src="images/clipboard-1532528205.png" class="img-fluid"></p>
+<p>d. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = &lt; 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto’s paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The draft is simply a sketch, but for the final draft I plan on making a watercolor painting. The process was fairly simple, the hardest part was definitely deciding how I was going to visualize my data. However, I think I landed on a cool idea. I first drew the landscape/background, then I added color and finally I added my data points to their respective locations.</p>
+<p>e.</p>
+<p><a href="https://docs.google.com/presentation/d/10Z4PC2I8VR4Q52l-N6mVNy8DuwPpkmw0r3UYu9V9h9Q/edit?usp=sharing" class="uri">https://docs.google.com/presentation/d/10Z4PC2I8VR4Q52l-N6mVNy8DuwPpkmw0r3UYu9V9h9Q/edit?usp=sharing</a></p>
+</section>
+<section id="problem-4.-statistical-critique" class="level1">
+<h1>Problem 4. <strong>Statistical Critique</strong></h1>
+<p>a) The statistical test included in this paper is ANOVA (Analysis of Variance) as well as PCA (Principal Component Analysis). The response variables are the water quality parameters (pH, Dissolved Oxygen, and E. coli). The predictor variable is the season.</p>
+<p><img src="images/clipboard-3964533704.png" class="img-fluid"></p>
+<p>b)</p>
+<p>c)</p>
+<p>d)</p>
 </section>
 
 </main>

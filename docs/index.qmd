@@ -145,7 +145,7 @@ a\) Based on Figure 1: Ocean Activities by Daily Workload Category, I like the i
 
 b/c) (Sorry, I just combined the sketch and draft into one. Hope that is okay.)
 
-![](images/clipboard-260854317.png)
+![](../images/visualization.jpeg)
 
 d\. This piece is a visual representation of personal data that I have collected over the past month and a half. Each colored point represents a day and the color corresponds to a daily workload category (blue = \< 3 hours of work, yellow = 3 - 6 hours of work, red = 6+ hours of work). The location of each point represent an ocean activity I did that specific day (on the bluffs = no activity, on the beach = quick dip, in the shore break = body surfing, past the wave = long boarding). I took a lot of inspiration form Jill Pelto's paintings, as she incorporates a lot of landscapes and backdrops into her data visualization. The draft is simply a sketch, but for the final draft I plan on making a watercolor painting. The process was fairly simple, the hardest part was definitely deciding how I was going to visualize my data. However, I think I landed on a cool idea. I first drew the landscape/background, then I added color and finally I added my data points to their respective locations.
 
@@ -157,7 +157,7 @@ e\.
 
 a\) The statistical test included in this paper is ANOVA (Analysis of Variance) as well as PCA (Principal Component Analysis). The response variables are the water quality parameters (pH, Dissolved Oxygen, and E. coli). The predictor variable is the season.
 
-![](images/clipboard-3379116964.png)
+![](../images/statistical_critique.png)
 
 b\) The authors present their statistics fairly clearly in the figure. The x-axis lists the water quality parameters, while the y-axis represents the concentrations of those parameters. This allows for easy comparison between wet and dry seasons. Seasonal differences are visually distinguished using separate colored bars, which helps highlight patterns such as the large change in EColi. However, the figure shows only summary values and does not display variability, such as standard error or the underlying raw data.
 

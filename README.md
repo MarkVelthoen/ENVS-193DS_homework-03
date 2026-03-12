@@ -6,12 +6,12 @@ editor_options:
 
 # ENVS-193DS_homework-03
 
-# General Information 
+# General Information
 
 This repo is for Homework 3 of ENVS 193DS. It is Mark Velthoen's Repo
 with no other contributors
 
-# Data 
+# Data
 
 There are two .csv files used in this homework, my personal data, which
 I have collected over the past month and a half, and soil salinity and

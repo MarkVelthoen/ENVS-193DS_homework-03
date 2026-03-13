@@ -67,17 +67,13 @@ ggplot(data = pickleweed,  #using pickleweed  dataframe to create a plot
   geom_qq()  # adding our observations
 ```
 
-```{r}
-model <- lm(pickleweed ~ salinity_mS_cm, data = pickleweed)
-plot(model, which = 2) # This specifically generates the Q-Q plot of residuals
-```
 
 ```{r}
 cor.test(pickleweed$pickleweed, pickleweed$salinity_mS_cm,
          method = "pearson")
 ```
 
-In order to run a Pearson's Correlation test, we must check the assumptions of linearity, normality and homoscedasticity. I checked the assumptions by plotting soil salinity vs biomass, making a qq-plot for each variable and making a qq-plot of residuals, respectively. There definitely appeared to be a linear relationship between soil salinity and biomass, both variables followed the reference line in each qq-plot and the residuals followed the qq-plot reference line. This shows that our assumptions are valid.
+In order to run a Pearson's Correlation test, we must check the assumptions of linearity and normality. I checked the assumptions by plotting soil salinity vs biomass and making a qq-plot for each variable respectively. There definitely appeared to be a linear relationship between soil salinity and biomass, both variables followed the reference line in each qq-plot and the residuals followed the qq-plot reference line. This shows that our assumptions are valid.
 
 d\) To evaluate the strength of the relationship between pickleweed biomass and soil salinity, I used a Pearson's Correlation test because both variables are continuous and the assumptions of linearity, normality and homoscedasticity were met. We found a positive moderate relationship between pickleweed biomass and soil salinity (Pearson's r = 0.53, t(21) = 2.9, p = 0.01, α = 0.05)
 

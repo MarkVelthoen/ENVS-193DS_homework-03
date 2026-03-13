@@ -192,19 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pickleweed <span class="sc">~</span> salinity_mS_cm, <span class="at">data =</span> pickleweed)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>) <span class="co"># This specifically generates the Q-Q plot of residuals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(pickleweed<span class="sc">$</span>pickleweed, pickleweed<span class="sc">$</span>salinity_mS_cm,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(pickleweed<span class="sc">$</span>pickleweed, pickleweed<span class="sc">$</span>salinity_mS_cm,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -219,13 +208,13 @@ sample estimates:
 0.5344778 </code></pre>
 </div>
 </div>
-<p>In order to run a Pearson’s Correlation test, we must check the assumptions of linearity, normality and homoscedasticity. I checked the assumptions by plotting soil salinity vs biomass, making a qq-plot for each variable and making a qq-plot of residuals, respectively. There definitely appeared to be a linear relationship between soil salinity and biomass, both variables followed the reference line in each qq-plot and the residuals followed the qq-plot reference line. This shows that our assumptions are valid.</p>
+<p>In order to run a Pearson’s Correlation test, we must check the assumptions of linearity and normality. I checked the assumptions by plotting soil salinity vs biomass and making a qq-plot for each variable respectively. There definitely appeared to be a linear relationship between soil salinity and biomass, both variables followed the reference line in each qq-plot and the residuals followed the qq-plot reference line. This shows that our assumptions are valid.</p>
 <p>d) To evaluate the strength of the relationship between pickleweed biomass and soil salinity, I used a Pearson’s Correlation test because both variables are continuous and the assumptions of linearity, normality and homoscedasticity were met. We found a positive moderate relationship between pickleweed biomass and soil salinity (Pearson’s r = 0.53, t(21) = 2.9, p = 0.01, α = 0.05)</p>
 <p>e) After running Pearson’s Correlation, we determined that there is a positive moderate relationship between soil salinity and pickleweed mass. This means that we should prioritize planting pickleweed in areas with higher soil salinity.</p>
 <p>f)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(pickleweed<span class="sc">$</span>pickleweed, pickleweed<span class="sc">$</span>salinity_mS_cm,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(pickleweed<span class="sc">$</span>pickleweed, pickleweed<span class="sc">$</span>salinity_mS_cm,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -244,49 +233,49 @@ sample estimates:
 <h1>Problem 2. Personal Data</h1>
 <p>a)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> personal_data <span class="sc">|&gt;</span> <span class="co">#creating a new data frame from my personal data</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workload_cat =</span> <span class="fu">case_when</span>( <span class="co">#mutating and creating a new variable workload_cat</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Low (0–3 hours)"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Medium (&gt;3–6 hours)"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"High (&gt;6 hours)"</span>), <span class="co">#changed the continuous values into three categories, low, medium and high workload</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">workload_cat =</span> <span class="fu">factor</span>(</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      workload_cat,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low (0–3 hours)"</span>, <span class="st">"Medium (&gt;3–6 hours)"</span>, <span class="st">"High (&gt;6 hours)"</span>))) <span class="co">#ordering the categories so it goes from low to high</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> personal_data <span class="sc">|&gt;</span> <span class="co">#creating a new data frame from my personal data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workload_cat =</span> <span class="fu">case_when</span>( <span class="co">#mutating and creating a new variable workload_cat</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Low (0–3 hours)"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Medium (&gt;3–6 hours)"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"High (&gt;6 hours)"</span>), <span class="co">#changed the continuous values into three categories, low, medium and high workload</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">workload_cat =</span> <span class="fu">factor</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      workload_cat,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low (0–3 hours)"</span>, <span class="st">"Medium (&gt;3–6 hours)"</span>, <span class="st">"High (&gt;6 hours)"</span>))) <span class="co">#ordering the categories so it goes from low to high</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2,</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> workload_cat,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">`</span><span class="at">Type of ocean activity</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co">#creating a plot with workload category on the x-axis</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co">#making the barplots fall next to each other in each bin instead of stacking on top of one another</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ocean Activities by Daily Workload Category"</span>, <span class="co">#creating the labels</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Daily Workload Category (hours)"</span>, <span class="co">#x-axis label </span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Count of Days"</span>, <span class="co">#y-axis label</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Ocean Activity"</span>) <span class="sc">+</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span> <span class="co">#coloring in each box based on ocean activity</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="co">#setting the theme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> workload_cat,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">`</span><span class="at">Type of ocean activity</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co">#creating a plot with workload category on the x-axis</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co">#making the barplots fall next to each other in each bin instead of stacking on top of one another</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ocean Activities by Daily Workload Category"</span>, <span class="co">#creating the labels</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Daily Workload Category (hours)"</span>, <span class="co">#x-axis label </span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Count of Days"</span>, <span class="co">#y-axis label</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Ocean Activity"</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span> <span class="co">#coloring in each box based on ocean activity</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="co">#setting the theme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personal_data, <span class="co">#creating a plot using my personal data</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span>, <span class="co">#setting the x-axis to daily workload or not</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">`</span><span class="at">Ocean</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co">#setting y-axis to whether I hopped in the ocean</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="dv">0</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co">#jittering the points horizontally</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co">#coloring each point </span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Impact of Daily Workload on Ocean Visits"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ocean Visit"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Daily Workload (hours)"</span>) <span class="sc">+</span> <span class="co">#creating the labels for the x and y axis as well as the title</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="co">#setting the theme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personal_data, <span class="co">#creating a plot using my personal data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Workload (hours)</span><span class="st">`</span>, <span class="co">#setting the x-axis to daily workload or not</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">`</span><span class="at">Ocean</span><span class="st">`</span>)) <span class="sc">+</span> <span class="co">#setting y-axis to whether I hopped in the ocean</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="dv">0</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co">#jittering the points horizontally</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co">#coloring each point </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Impact of Daily Workload on Ocean Visits"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ocean Visit"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Daily Workload (hours)"</span>) <span class="sc">+</span> <span class="co">#creating the labels for the x and y axis as well as the title</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="co">#setting the theme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
